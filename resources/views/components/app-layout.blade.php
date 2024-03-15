@@ -11,8 +11,15 @@
 <body>
   <nav>
     <ul>
-      <li><a href="{{ route("login") }}">Login</a></li>
-      <li><a href="{{ route("register") }}">Register</a></li>
+      @guest
+        <li><a href="{{ route("login") }}">Login</a></li>
+        <li><a href="{{ route("register") }}">Register</a></li>
+      @endguest
+
+      @auth
+        <li><a href="">{{ auth()->user()->name }}</a></li>
+        <li><a href="{{ route("dashboard") }}">Dashboard</a></li>
+      @endauth
       <li><a href="{{ route("home") }}">Home</a></li>
     </ul>
   </nav>
