@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountDeleteController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,3 +20,5 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('dashboard', DashboardController::class)->name('dashboard');
+Route::get('account-delete', [AccountDeleteController::class, 'index'])->name('account.delete');
+Route::post('account-delete', [AccountDeleteController::class, 'destroy']);
