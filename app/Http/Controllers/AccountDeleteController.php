@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class AccountDeleteController extends Controller
 {
     public function __construct()
@@ -19,6 +17,7 @@ class AccountDeleteController extends Controller
     public function destroy()
     {
         auth()->user()->delete();
+
         return redirect()->route('home');
     }
 }
